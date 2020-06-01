@@ -16,8 +16,8 @@ app.use(cors());
 const db = require("./config/keys").mongoURI;
 //connect to mongoDB
 mongoose
-  .connect("mongodb://localhost/brace_up")
-  // .connect(db, { useNewUrlParser: true })
+  // .connect("mongodb://localhost/brace_up")
+  .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Datatbase Connected"))
   .catch((err) => console.log(err));
 
