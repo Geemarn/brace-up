@@ -1,0 +1,85 @@
+$primary: #20a8d8;
+$white: #ffffff;
+
+.Progress {
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  & > div {
+    margin: 0 3px;
+    width: 15px;
+    height: 15px;
+    background-color: $white;
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: bouncedelay 1.4s infinite ease-in-out both;
+    animation: bouncedelay 1.4s infinite ease-in-out both;
+  }
+
+  &.md > div {
+    width: 10px;
+    height: 10px;
+  }
+
+  &.sm > div {
+    width: 5px;
+    height: 5px;
+  }
+
+  & > .progress-info {
+    color: $white;
+    font-weight: bold;
+  }
+
+  &.alt > div {
+    background-color: $primary;
+  }
+
+  &.alt > .progress-info {
+    color: #333333;
+    font-weight: bold;
+  }
+
+  & > .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+
+  & > .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+}
+
+.Progress.blue {
+  & > div {
+    background-color: $white;
+  }
+}
+
+@-webkit-keyframes bouncedelay {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes bouncedelay {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}

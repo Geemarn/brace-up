@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="639.703" height="34" viewBox="0 0 639.703 34">
+  <g id="group-dem" transform="translate(0 -76.479)">
+    <line id="Line_1" data-name="Line 1" x2="223.942" transform="translate(0 91.881)" fill="none" stroke="#bcbcbc" stroke-width="2" stroke-dasharray="19 19"/>
+    <line id="Line_2" data-name="Line 2" x2="223.942" transform="translate(415.761 91.881)" fill="none" stroke="#bcbcbc" stroke-width="2" stroke-dasharray="19 19"/>
+    <text id="or" transform="translate(304.364 76.479)" fill="#bcbcbc" font-size="25" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="24">or</tspan></text>
+  </g>
+</svg>

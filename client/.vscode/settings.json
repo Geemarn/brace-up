@@ -1,0 +1,23 @@
+{
+    "vscode.tsc.compiler.alertTSConfigChanges": "never",
+    "editor.autoIndent": true,
+    "editor.tabSize": 2,
+    "editor.useTabStops": true,
+    "eslint.lintTask.enable": true,
+    "eslint.enable": true,
+    "eslint.packageManager": "yarn",
+    "eslint.alwaysShowStatus": true,
+    "prettier.trailingComma": "all",
+    "editor.lineHeight": 22,
+    "eslint.autoFixOnSave": true,
+    "editor.formatOnSave": true,
+    "javascript.implicitProjectConfig.checkJs": true,
+    // Enable per-language
+    "[javascript]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.fontFamily": "consolas, 'Courier New', monospace",
+  }
+  

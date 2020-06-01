@@ -1,0 +1,9 @@
+{
+  "singleQuote": false,
+  "useTabs": false,
+  "eslintIntegration": true,
+  "tabWidth": 2,
+  "semi": true,
+  "parser": "flow"
+}
+
