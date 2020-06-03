@@ -3,8 +3,7 @@ import {
   LOGOUT,
   UPDATE_SESSION_TOKEN,
   GET_CURRENT_USER,
-  UPDATE_USER,
-  navigateTo
+  UPDATE_USER
 } from "../../actions";
 
 const initialState = {

@@ -2,9 +2,7 @@ import React, { useEffect } from "react";
 import { Button, Col, Form, FormGroup, Row } from "reactstrap";
 import PropTypes from "prop-types";
 import { Field, reduxForm } from "redux-form";
-import TextInputField from "../../../_shared/components/ReduxFormFields/TextInput";
 import TextareaField from "../../../_shared/components/ReduxFormFields/TextareaField";
-import Progress from "../../../_shared/components/Progress";
 
 const propTypes = {
   formloading: PropTypes.bool,
@@ -17,14 +15,12 @@ const defaultProps = {
 const TodoFormDialog = props => {
   const {
     updateDone,
-    updating = false,
-    formData,
-    onSubmit,
     handleSubmit,
     formLoading,
     submitting,
     pristine,
-    invalid
+    invalid,
+    nightMode
   } = props;
 
   useEffect(() => {
@@ -41,7 +37,9 @@ const TodoFormDialog = props => {
             <Field
               name={"description"}
               disabled={formLoading}
-              className="form-control border-info"
+              className={`form-control border-info ${
+                nightMode ? "bg-dark text-light" : null
+              }`}
               placeholder="Description"
               component={TextareaField}
             />

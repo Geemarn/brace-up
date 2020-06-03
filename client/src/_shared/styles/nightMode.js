@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const StyledNightmode = styled.div`
   display: block;
-  font-weight: 800;
+  font-weight: 5;
+  letter-spacing: 0.1em;
   font-size: 18px;
   color: #fff;
   padding: 8px 3px 3px 20px;
@@ -10,7 +11,7 @@ const StyledNightmode = styled.div`
   background-color: rgba(80, 80, 80, 0.1);
   span {
     padding-right: 45px;
-    margin-right: 30px;
+    margin-right: 20px;
   }
   /* CSS taken from https://www.w3schools.com/howto/howto_css_switch.asp */
   /* The switch - the box around the slider */

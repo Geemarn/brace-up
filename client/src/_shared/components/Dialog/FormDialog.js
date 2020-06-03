@@ -1,5 +1,5 @@
-import React from 'react';
-import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import React from "react";
+import { Modal, ModalBody, ModalHeader } from "reactstrap";
 
 const FormDialog = props => {
   const {
@@ -10,6 +10,7 @@ const FormDialog = props => {
     formProps,
     titleBadgeColor,
     FormComponent,
+    nightMode
   } = props;
 
   return (
@@ -21,7 +22,7 @@ const FormDialog = props => {
         isOpen={showDialog}
         toggle={handleClose}
         fade={false}
-        className="view"
+        className={`view ${nightMode ? "my-modal" : null}`}
       >
         <ModalHeader toggle={handleClose}>
           <span

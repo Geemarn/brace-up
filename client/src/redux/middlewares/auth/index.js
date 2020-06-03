@@ -87,4 +87,4 @@ const logOut = ({ dispatch }) => next => action => {
   }
 };
 
-export default [login, register, getCurrentUser, logOut];
+export default [login, register, getCurrentUser, logOut, updateUser];

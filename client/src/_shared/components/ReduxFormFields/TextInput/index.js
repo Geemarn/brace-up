@@ -25,7 +25,7 @@ export default ({
         {...rest}
         disabled={disabled}
         className={classNames(
-          "bg-white text-info border-top-0 border-right-0 border-left-0 border-info rounded-0",
+          "text-info border-top-0 border-right-0 border-left-0 border-info rounded-0",
           className,
           {
             "is-invalid": touched && error

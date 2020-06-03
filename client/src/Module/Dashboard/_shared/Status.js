@@ -1,5 +1,3 @@
-import React from "react";
-
 const currentStatus = todo => {
   const status = ["Pending", "Progress", "Completed"].find(
     status => status === (todo && todo.status)

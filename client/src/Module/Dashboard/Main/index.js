@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Button } from "reactstrap";
 import Progress from "../../../_shared/components/Progress";
@@ -133,7 +133,7 @@ const Main = props => {
             </div>
           ) : (
             <div>
-              <SingleTodoDetails id={params} />
+              <SingleTodoDetails id={params} nightMode={nightMode} />
             </div>
           )
         ) : (
@@ -151,8 +151,10 @@ const Main = props => {
         formProps={{
           updateDone,
           onSubmit: handleSubmit,
-          formLoading: isCreatingTodo
+          formLoading: isCreatingTodo,
+          nightMode
         }}
+        nightMode={nightMode}
         FormComponent={TodoFormDialog}
       />
     </ThemeProvider>

@@ -1,4 +1,4 @@
-import { createActionString, createActionType } from "../../../utils";
+import { createActionType } from "../../../utils";
 
 export const FETCH_TODOS = createActionType("FETCH_TODOS", "Todo");
 export const FETCH_TODO = createActionType("FETCH_TODO", "Todo");

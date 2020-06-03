@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "reactstrap";
 import { Modal } from "react-bootstrap";
 import Progress from "../Progress/index";
+import "./index.css";
 
 const ConfirmDialog = props => {
   const {
@@ -12,12 +13,18 @@ const ConfirmDialog = props => {
     showDialog,
     handleConfirm,
     handleClose,
-    onHide
+    onHide,
+    nightMode
   } = props;
 
   return (
     <div>
-      <Modal show={showDialog} onHide={onHide} animation={false}>
+      <Modal
+        show={showDialog}
+        onHide={onHide}
+        animation={false}
+        className={`${nightMode ? "my-modal" : null}`}
+      >
         <Modal.Header closeButton>
           <Modal.Title>
             <i className="fas fa-exclamation text-danger pr-2" />

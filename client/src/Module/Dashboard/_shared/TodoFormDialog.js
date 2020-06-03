@@ -17,10 +17,8 @@ const defaultProps = {
 const TodoFormDialog = props => {
   const {
     updateDone,
-    updating = false,
-    formData,
+    nightMode,
     handleSubmit,
-    onSubmit,
     formLoading,
     submitting,
     pristine,
@@ -41,7 +39,9 @@ const TodoFormDialog = props => {
             <Field
               name={"title"}
               disabled={formLoading}
-              className="form-control"
+              className={`form-control ${
+                nightMode ? "bg-dark text-light" : null
+              }`}
               placeholder="Title"
               component={TextInputField}
             />
@@ -52,7 +52,9 @@ const TodoFormDialog = props => {
             <Field
               name={"description"}
               disabled={formLoading}
-              className="form-control border-info"
+              className={`form-control border-info ${
+                nightMode ? "bg-dark text-light" : null
+              }`}
               placeholder="Description"
               component={TextareaField}
             />

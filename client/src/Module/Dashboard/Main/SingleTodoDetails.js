@@ -23,6 +23,7 @@ const SingleTodoDetails = props => {
     todo,
     isFetchingTodo,
     isCreatingTask,
+    nightMode,
     id: { id }
   } = props;
   const [todoId, setTodoId] = useState("");
@@ -56,8 +57,13 @@ const SingleTodoDetails = props => {
   return (
     <Fragment>
       {!isFetchingTodo && todo ? (
-        <div>
+        <div
+          className={` p-2 shadow-sm ${
+            !nightMode ? " border border-light" : "border border-dark"
+          } `}
+        >
           <h4 className="h4 text font-weight-bold">
+            <i className="fa fa-briefcase pr-4 text-info h5" />
             {todo.title}
             <span
               className={`ml-3 badge badge-pill badge-${
@@ -67,7 +73,7 @@ const SingleTodoDetails = props => {
               <small>{todo.status}</small>
             </span>
           </h4>
-          <h6 className=" mt-2 text">{todo.description}</h6>
+          <h6 className=" mt-2 text pl-4 ml-4 ">{todo.description}</h6>
         </div>
       ) : (
         <Progress className="alt text-left" />
@@ -132,8 +138,10 @@ const SingleTodoDetails = props => {
         formProps={{
           updateDone,
           onSubmit: handleSubmit,
-          formLoading: isCreatingTask
+          formLoading: isCreatingTask,
+          nightMode
         }}
+        nightMode={nightMode}
         FormComponent={TaskForm}
       />
     </Fragment>

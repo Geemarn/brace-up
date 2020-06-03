@@ -1,5 +1,3 @@
-import React from "react";
-
 export const createActionType = (type, entity = "App") => ({
   START: `@@[${entity}] ${type}`,
   SUCCESS: `@@[${entity}] ${type}_SUCCESS`,

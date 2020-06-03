@@ -1,15 +1,15 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import SideNavList from "./SideNavList";
-import styled from "styled-components";
-import StyledNightMode from "../../../_shared/styles/StyledNightMode";
-import DropdownItemContainer from "../../../_shared/styles/DropdownItemContainer";
+import StyledNightMode from "../../../_shared/styles/nightMode";
+import DropdownItemContainer from "../../../_shared/styles/dropdownItemContainer";
 import PropTypes from "prop-types";
 import FormDialog from "../../../_shared/components/Dialog/FormDialog";
 import ConfirmDialog from "../../../_shared/components/Dialog/ConfirmDialog";
 import TodoFormDialog from "../_shared/TodoFormDialog";
 import { Collapse, Button } from "reactstrap";
 import DropdownItem from "./DropdownItem";
+import StyleFooter from "../../../_shared/styles/footer";
 import StyleLogout from "../../../_shared/styles/logout";
 import {
   logOut,
@@ -214,6 +214,9 @@ const SideNav = props => {
         <StyleLogout onClick={logOut}>
           <SideNavList text={"Log Out"} icon={"fas fa-sign-out-alt"} />
         </StyleLogout>
+        <StyleFooter>
+          &copy; {new Date().getFullYear()}, Adegoke@ReactMaster
+        </StyleFooter>
       </div>
       <FormDialog
         title="Create new Todo"
@@ -224,8 +227,10 @@ const SideNav = props => {
         formProps={{
           updateDone,
           onSubmit: handleSubmit,
-          formLoading: isCreatingTodo
+          formLoading: isCreatingTodo,
+          nightMode
         }}
+        nightMode={nightMode}
         FormComponent={TodoFormDialog}
       />
       <ConfirmDialog
@@ -234,6 +239,7 @@ const SideNav = props => {
         onHide={() => setDialogOpen(false)}
         handleClose={() => setDialogOpen(prev => !prev)}
         handleConfirm={handleDelete}
+        nightMode={nightMode}
       />
     </Fragment>
   );
