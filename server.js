@@ -50,7 +50,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(
   "/api",
   createProxyMiddleware({
-    target: "http://localhost:5000/api",
+    target: "http://localhost:5000",
     changeOrigin: true,
   })
 );
