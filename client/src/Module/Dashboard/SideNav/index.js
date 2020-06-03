@@ -1,8 +1,8 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import SideNavList from "./SideNavList";
+import DropdownItemContainer from "../../../_shared/styles/DropdownItemContainer";
 import StyledNightMode from "../../../_shared/styles/nightMode";
-import DropdownItemContainer from "../../../_shared/styles/dropdownItemContainer";
 import PropTypes from "prop-types";
 import FormDialog from "../../../_shared/components/Dialog/FormDialog";
 import ConfirmDialog from "../../../_shared/components/Dialog/ConfirmDialog";
