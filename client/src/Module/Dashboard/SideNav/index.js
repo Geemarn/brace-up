@@ -42,11 +42,11 @@ const SideNav = props => {
     deleteTodo
   } = props;
   const [isOpen, setIsOpen] = useState(false);
-  const [dialogOpen, setDialogOpen] = useState(false);
   const [viewTodoForm, setViewTodoForm] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(
     localStorage.getItem(`todoCurrentList/${user.id}`)
   );
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
     if (id !== undefined) {
