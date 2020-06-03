@@ -4,7 +4,7 @@ import { Button } from "reactstrap";
 import Progress from "../../../_shared/components/Progress";
 import { ThemeProvider } from "styled-components";
 import StyledSideNav from "../../../_shared/styles/sideNav";
-import StyledMain from "../../../_shared/styles/StyledMain";
+import StyledMain from "../../../_shared/styles/mainContainer";
 import { capitalizeFirstLetter } from "../../../utils";
 import SideNav from "../SideNav";
 import SingleTodoDetails from "./SingleTodoDetails";
