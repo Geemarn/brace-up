@@ -24,6 +24,7 @@ const SingleTodoDetails = props => {
     isFetchingTodo,
     isCreatingTask,
     nightMode,
+    isUpdatingStatus,
     id: { id }
   } = props;
   const [todoId, setTodoId] = useState("");
@@ -70,7 +71,13 @@ const SingleTodoDetails = props => {
                 Status(todo).statusClassName
               }`}
             >
-              <small>{todo.status}</small>
+              <small>
+                {!isUpdatingStatus ? (
+                  todo.status
+                ) : (
+                  <Progress className="alt text-left" />
+                )}
+              </small>
             </span>
           </h4>
           <h6 className=" mt-2 text pl-4 ml-4 ">{todo.description}</h6>
@@ -158,7 +165,8 @@ const dispatchProps = {
 const mapStateToProps = state => ({
   todo: state.todo.current,
   isFetchingTodo: state.ui.loading["fetchTodo"],
-  isCreatingTask: state.ui.loading["createTask"]
+  isCreatingTask: state.ui.loading["createTask"],
+  isUpdatingStatus: state.ui.loading["todoStatusUpdate"]
 });
 
 export default connect(mapStateToProps, dispatchProps)(SingleTodoDetails);

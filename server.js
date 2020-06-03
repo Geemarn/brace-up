@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 const cors = require("cors");
+
+//routers
 const users = require("./router/apis/users");
 const todos = require("./router/apis/todos");
 
@@ -44,6 +47,13 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
+app.use(
+  "/api",
+  createProxyMiddleware({
+    target: "http://localhost:5000/api",
+    changeOrigin: true,
+  })
+);
 
 //listen to server
 const port = process.env.PORT || 5000;
