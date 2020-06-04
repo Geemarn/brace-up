@@ -1,8 +1,9 @@
 import axios from "axios";
 import authService from "./auth";
+
 // Default config options
 const defaultOptions = {
-  baseURL: "http://localhost:5000/api",
+  baseURL: "/api",
   headers: {
     "x-api-key": "brace-up"
   }

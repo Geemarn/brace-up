@@ -22,3 +22,13 @@ export const capitalizeFirstLetter = (firstName = "") => {
 
   return fstName;
 };
+
+export const capIstLetterSentence = name => {
+  return (
+    name &&
+    name
+      .charAt(0)
+      .toUpperCase()
+      .concat(name.slice(1))
+  );
+};

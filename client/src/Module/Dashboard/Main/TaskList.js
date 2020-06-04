@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { capIstLetterSentence } from "../../../utils";
 import { connect } from "react-redux";
 import { Button, Form } from "reactstrap";
 import styled from "styled-components";
@@ -103,11 +104,7 @@ const TaskList = props => {
                 <i className="far fa-circle mr-2 text-info" />
               </small>
             )}
-            {description &&
-              description
-                .charAt(0)
-                .toUpperCase()
-                .concat(description.slice(1))}
+            {capIstLetterSentence(description)}
           </span>
           <div>
             <Button

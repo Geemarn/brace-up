@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import { ReactComponent as Undrawn } from "../../../_shared/assets/images/undraw_no_data_qbuo.svg";
+import { capIstLetterSentence } from "../../../utils";
 import Progress from "../../../_shared/components/Progress";
 import TaskForm from "../_shared/TaskForm";
 import Status from "../_shared/Status";
@@ -65,7 +66,7 @@ const SingleTodoDetails = props => {
         >
           <h4 className="h4 text font-weight-bold">
             <i className="fa fa-briefcase pr-4 text-info h5" />
-            {todo.title}
+            {capIstLetterSentence(todo.title)}
             <span
               className={`ml-3 badge badge-pill badge-${
                 Status(todo).statusClassName
@@ -80,7 +81,9 @@ const SingleTodoDetails = props => {
               </small>
             </span>
           </h4>
-          <h6 className=" mt-2 text pl-4 ml-4 ">{todo.description}</h6>
+          <h6 className=" mt-2 text pl-4 ml-3 ">
+            {capIstLetterSentence(todo.description)}
+          </h6>
         </div>
       ) : (
         <Progress className="alt text-left" />
