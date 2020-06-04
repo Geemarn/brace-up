@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 const cors = require("cors");
 
 //routers
@@ -32,18 +33,17 @@ app.use(passport.initialize());
 // Passport Config
 require("./config/passport")(passport);
 
-const { createProxyMiddleware } = require("http-proxy-middleware");
+//import routes
+app.use("/users", users);
+app.use("/todos", todos);
+
 app.use(
-  "/api",
+  "/",
   createProxyMiddleware({
     target: "http://localhost:5000",
     changeOrigin: true,
   })
 );
-
-//import routes
-app.use("/users", users);
-app.use("/todos", todos);
 
 /////ready for production/////
 //server static asset if in production
