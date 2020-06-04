@@ -15,6 +15,9 @@ const app = express();
 //allow Access-Control-Allow-Origin
 app.use(cors());
 
+//proxy server
+createProxyMiddleware("http://localhost:5000/api");
+
 //database config
 const db = require("./config/keys").mongoURI;
 //connect to mongoDB
@@ -36,14 +39,6 @@ require("./config/passport")(passport);
 //import routes
 app.use("/api/users", users);
 app.use("/api/todos", todos);
-
-app.use(
-  "/api",
-  createProxyMiddleware({
-    target: "http://localhost:5000",
-    changeOrigin: true,
-  })
-);
 
 /////ready for production/////
 //server static asset if in production
