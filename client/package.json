@@ -10,6 +10,7 @@
     "bootstrap": "^4.4.1",
     "connected-react-router": "^6.8.0",
     "history": "^4.10.1",
+    "http-proxy-middleware": "^1.0.4",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.15",
     "lodash.throttle": "^4.1.1",
@@ -75,6 +76,5 @@
     "prettier-eslint-cli": "^5.0.0",
     "redux-logger": "^3.0.6",
     "rimraf": "^3.0.0"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }

@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const { createProxyMiddleware } = require("http-proxy-middleware");
 const cors = require("cors");
 
 //routers
@@ -14,9 +13,6 @@ const app = express();
 
 //allow Access-Control-Allow-Origin
 app.use(cors());
-
-//proxy server
-createProxyMiddleware("http://localhost:5000/api");
 
 //database config
 const db = require("./config/keys").mongoURI;
