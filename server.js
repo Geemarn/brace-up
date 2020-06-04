@@ -34,11 +34,11 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 //import routes
-app.use("/users", users);
-app.use("/todos", todos);
+app.use("/api/users", users);
+app.use("/api/todos", todos);
 
 app.use(
-  "/",
+  "/api",
   createProxyMiddleware({
     target: "http://localhost:5000",
     changeOrigin: true,
