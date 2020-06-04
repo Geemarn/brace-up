@@ -34,8 +34,8 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 //import routes
-app.use("/api/users", users);
-app.use("/api/todos", todos);
+app.use("/users", users);
+app.use("/todos", todos);
 
 /////ready for production/////
 //server static asset if in production
