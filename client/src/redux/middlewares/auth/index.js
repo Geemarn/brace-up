@@ -7,7 +7,10 @@ import {
   LOGOUT,
   LOGIN,
   REGISTER,
+  RESET_PASSWORD,
+  FETCH_UPDATE_PASSWORD,
   GET_CURRENT_USER,
+  UPDATE_PASSWORD,
   UPDATE_USER
 } from "../../actions/index";
 import { toast } from "react-toastify";
@@ -78,6 +81,55 @@ const updateUser = ({ dispatch }) => next => action => {
     );
   }
 };
+
+const resetPassword = ({ dispatch }) => next => action => {
+  next(action);
+  if (action.type === RESET_PASSWORD.START) {
+    dispatch(
+      apiRequest({
+        method: POST,
+        url: "/users/reset-password",
+        key: "resetPassword",
+        nextRoute: "/",
+        ...action.meta
+      })
+    );
+  }
+};
+
+const updatePassword = ({ dispatch }) => next => action => {
+  next(action);
+  if (action.type === UPDATE_PASSWORD.START) {
+    const { token } = action.meta;
+    dispatch(
+      apiRequest({
+        method: POST,
+        url: `/users/reset/${token}`,
+        key: "updatePassword",
+        onSuccess: () => {
+          dispatch(navigateTo("/"));
+        },
+        ...action.meta
+      })
+    );
+  }
+};
+
+const fetchUpdatePassword = ({ dispatch }) => next => action => {
+  next(action);
+  if (action.type === FETCH_UPDATE_PASSWORD.START) {
+    const { token, ...rest } = action.meta;
+    dispatch(
+      apiRequest({
+        method: GET,
+        url: `/users/reset/${token}`,
+        key: "fetchUpdatePassword",
+        ...rest
+      })
+    );
+  }
+};
+
 const logOut = ({ dispatch }) => next => action => {
   next(action);
   if (action.type === LOGOUT.START) {
@@ -87,4 +139,13 @@ const logOut = ({ dispatch }) => next => action => {
   }
 };
 
-export default [login, register, getCurrentUser, logOut, updateUser];
+export default [
+  login,
+  register,
+  getCurrentUser,
+  logOut,
+  updateUser,
+  resetPassword,
+  fetchUpdatePassword,
+  updatePassword
+];

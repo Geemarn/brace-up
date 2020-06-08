@@ -60,28 +60,28 @@ const SingleTodoDetails = props => {
     <Fragment>
       {!isFetchingTodo && todo ? (
         <div
-          className={` p-2 shadow-sm ${
+          className={` p-2 shadow-sm d-block ${
             !nightMode ? " border border-light" : "border border-dark"
           } `}
         >
-          <h4 className="h4 text font-weight-bold">
+          <h4 className="h4 text font-weight-bold ">
             <i className="fa fa-briefcase pr-4 text-info h5" />
             {capIstLetterSentence(todo.title)}
-            <span
-              className={`ml-3 badge badge-pill badge-${
-                Status(todo).statusClassName
-              }`}
-            >
-              <small>
-                {!isUpdatingStatus ? (
-                  todo.status
-                ) : (
-                  <Progress className="alt text-left" />
-                )}
-              </small>
+            <span className="d-inline-flex ml-3">
+              {!isUpdatingStatus ? (
+                <span
+                  className={`badge badge-pill badge-${
+                    Status(todo).statusClassName
+                  }`}
+                >
+                  <small>{todo.status}</small>
+                </span>
+              ) : (
+                <Progress className="alt text-left" />
+              )}
             </span>
           </h4>
-          <h6 className=" mt-2 text pl-4 ml-3 ">
+          <h6 className=" mt-2 text pl-4 ml-3">
             {capIstLetterSentence(todo.description)}
           </h6>
         </div>
@@ -107,12 +107,12 @@ const SingleTodoDetails = props => {
           </div>
         ) : (
           <div>
-            <div className="mb-4 mt-5">
-              <span className="h5 mt-5">
+            <div className="mb-4 mt-5 d-flex justify-content-between">
+              <span className="h5">
                 <i className="far fa-clipboard text-info mr-2"></i>
                 <span className="text ">Your Tasks</span>
               </span>
-              <span className="float-right">
+              <span className="">
                 <Button
                   color="info"
                   onClick={() => (
@@ -136,9 +136,7 @@ const SingleTodoDetails = props => {
             })}
           </div>
         )
-      ) : (
-        <Progress className="alt" />
-      )}
+      ) : null}
       <FormDialog
         title="Add Task"
         size="sm"

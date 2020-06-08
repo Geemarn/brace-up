@@ -1,7 +1,8 @@
 import React, { Suspense } from "react";
-import StyledMain from "../../styles/main";
+import { Switch } from "react-router-dom";
 import Route from "../CustomRoute";
 import Main from "../../../Module/Dashboard/Main";
+import Page404 from "../Errors/Page404";
 
 const Loading = () => (
   <div className="animated fadeIn pt-1 text-center">Loading...</div>
@@ -10,8 +11,8 @@ const Loading = () => (
 const Layout = () => {
   return (
     <div>
-      <StyledMain>
-        <Suspense fallback={Loading}>
+      <Suspense fallback={Loading}>
+        <Switch>
           {["/dashboard", "/dashboard/:id"].map((path, idx) => {
             return (
               <Route
@@ -24,8 +25,9 @@ const Layout = () => {
               />
             );
           })}
-        </Suspense>
-      </StyledMain>
+          <Route path={"*"} exact={true} name={"Page404"} component={Page404} />
+        </Switch>
+      </Suspense>
     </div>
   );
 };

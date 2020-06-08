@@ -17,7 +17,6 @@ export default ({
     rest.maxLength = length;
   }
 
-  console.log("textInput::::", value);
   return (
     <Fragment>
       <Input
