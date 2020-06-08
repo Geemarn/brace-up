@@ -98,7 +98,7 @@ const SideNav = props => {
     if (todoId === todos.length - 1 && todos.length !== 1) {
       navigateTo(`/dashboard/${todos && todos[0] && todos[0]._id}`);
     } else if (todos.length === 1) {
-      navigateTo(`/dashboard/${null}`);
+      navigateTo(`/dashboard/${""}`);
     } else {
       navigateTo(
         `/dashboard/${todos && todos[todoId + 1] && todos[todoId + 1]._id}`
