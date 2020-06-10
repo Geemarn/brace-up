@@ -67,11 +67,7 @@ const apiRequest = ({ dispatch }) => next => action => {
         const toastMessage = successMessage || (_meta && _meta.message);
         if (!noSuccessToast && toastMessage) {
           toast.dismiss();
-          if (key === "register") {
-            toast.success(toastMessage);
-          } else {
-            toast.info(toastMessage);
-          }
+          toast.info(toastMessage);
         }
       })
       .catch(e => {

@@ -11,7 +11,10 @@ import "./App.css";
 //components
 const Auth = lazy(() => import("./Auth"));
 const Layout = lazy(() => import("./_shared/components/Partials/Layout"));
-const Page404 = lazy(() => import("./_shared/components/Errors/Page404"));
+const ResetPassword = lazy(() => import("./Auth/ResetPassword"));
+const UpdatePassword = lazy(() =>
+  import("./Auth/ResetPassword/UpdatePasswordForm")
+);
 
 const loading = () => (
   <div className="animated fadeIn pt-5 text-center">Loading...</div>
@@ -33,20 +36,26 @@ const App = () => {
         pauseOnHover={true}
         position="bottom-right"
       />
-      <Switch>
-        <Suspense fallback={loading}>
+
+      <Suspense fallback={loading}>
+        <Switch>
           <Route exact path="/" name="login" component={Auth} />
           <Route exact path="/register" name="register" component={Auth} />
           <Route
             exact
-            path="/404"
-            name="Page 404"
-            component={Page404}
-            isPrivate={false}
+            path="/resetPassword"
+            name="reset password"
+            component={ResetPassword}
+          />
+          <Route
+            exact
+            path="/reset/:token"
+            name="reset password"
+            component={UpdatePassword}
           />
           <Route path="/:app" name="layout" component={Layout} />
-        </Suspense>
-      </Switch>
+        </Switch>
+      </Suspense>
     </Fragment>
   );
 };

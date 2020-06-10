@@ -15,6 +15,13 @@ const StyledSideNav = styled.div`
   .icon {
     color: ${props => props.theme.iconColor};
   }
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media only screen and (max-width: 450px) {
+    padding-top: 15px;
+    font-size: 10px;
+    width: 180px;
+  }
 `;
 
 export default StyledSideNav;

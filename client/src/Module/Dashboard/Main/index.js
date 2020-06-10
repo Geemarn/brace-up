@@ -5,6 +5,7 @@ import Progress from "../../../_shared/components/Progress";
 import { ThemeProvider } from "styled-components";
 import StyledSideNav from "../../../_shared/styles/sideNav";
 import StyledMain from "../../../_shared/styles/mainContainer";
+import StyledMainComponent from "../../../_shared/styles/main";
 import { capitalizeFirstLetter } from "../../../utils";
 import SideNav from "../SideNav";
 import SingleTodoDetails from "./SingleTodoDetails";
@@ -101,62 +102,64 @@ const Main = props => {
 
   return (
     <ThemeProvider theme={nightMode ? themeDark : themeLight}>
-      <StyledSideNav>
-        <SideNav
-          id={params}
-          nightMode={nightMode}
-          setNightMode={() => setNightMode(prev => !prev)}
-        />
-      </StyledSideNav>
-      <StyledMain>
-        <div className="mb-4">
-          <h4 className="pt-3 mb-0 text font-weight-bold">
-            {callGreeting()},{" "}
-            <strong className="h3 text-info">
-              {capitalizeFirstLetter(user && user.username)}
-            </strong>
-          </h4>
-          <h6 className="text">{Moment(date).format("LLL")}</h6>
-        </div>
-        {!isFetchingTodo ? (
-          !todos.length ? (
-            <div className="text-center">
-              <Cry />
-              <h4 className=" text">You do not have a todo yet</h4>
-              <Button
-                color="info"
-                className="px-5"
-                onClick={() => setViewTodoForm(prev => !prev)}
-              >
-                Create Todo
-              </Button>
-            </div>
-          ) : (
-            <div>
-              <SingleTodoDetails id={params} nightMode={nightMode} />
-            </div>
-          )
-        ) : (
-          <div className="pt-5">
-            <Progress className="alt" />
+      <StyledMainComponent>
+        <StyledSideNav>
+          <SideNav
+            id={params}
+            nightMode={nightMode}
+            setNightMode={() => setNightMode(prev => !prev)}
+          />
+        </StyledSideNav>
+        <StyledMain>
+          <div className="mb-4">
+            <h4 className="pt-3 mb-0 text font-weight-bold">
+              {callGreeting()},{" "}
+              <span className="h3 text-info font-weight-bolder">
+                {capitalizeFirstLetter(user && user.username)}
+              </span>
+            </h4>
+            <h6 className="text">{Moment(date).format("LLL")}</h6>
           </div>
-        )}
-      </StyledMain>
-      <FormDialog
-        title="Create new Todo"
-        size="md"
-        titleBadgeColor={"info"}
-        showDialog={viewTodoForm}
-        handleClose={() => setViewTodoForm(prev => !prev)}
-        formProps={{
-          updateDone,
-          onSubmit: handleSubmit,
-          formLoading: isCreatingTodo,
-          nightMode
-        }}
-        nightMode={nightMode}
-        FormComponent={TodoFormDialog}
-      />
+          {!isFetchingTodo ? (
+            !todos.length ? (
+              <div className="text-center">
+                <Cry />
+                <h4 className=" text">You do not have a todo yet</h4>
+                <Button
+                  color="info"
+                  className="px-5"
+                  onClick={() => setViewTodoForm(prev => !prev)}
+                >
+                  Create Todo
+                </Button>
+              </div>
+            ) : (
+              <div>
+                <SingleTodoDetails id={params} nightMode={nightMode} />
+              </div>
+            )
+          ) : (
+            <div className="pt-5">
+              <Progress className="alt" />
+            </div>
+          )}
+        </StyledMain>
+        <FormDialog
+          title="Create new Todo"
+          size="md"
+          titleBadgeColor={"info"}
+          showDialog={viewTodoForm}
+          handleClose={() => setViewTodoForm(prev => !prev)}
+          formProps={{
+            updateDone,
+            onSubmit: handleSubmit,
+            formLoading: isCreatingTodo,
+            nightMode
+          }}
+          nightMode={nightMode}
+          FormComponent={TodoFormDialog}
+        />
+      </StyledMainComponent>
     </ThemeProvider>
   );
 };

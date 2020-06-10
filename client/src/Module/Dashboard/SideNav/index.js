@@ -47,6 +47,7 @@ const SideNav = props => {
     localStorage.getItem(`todoCurrentList/${user.id}`)
   );
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [dconfirmDialogOpen, setConfirmDialogOpen] = useState(false);
 
   useEffect(() => {
     if (id !== undefined) {
@@ -60,9 +61,9 @@ const SideNav = props => {
     }
   }, [currentIdx, navigateTo]);
 
-  useEffect(() => {
-    fetchTodos();
-  }, [fetchTodos]);
+  // useEffect(() => {
+  //   fetchTodos();
+  // }, [fetchTodos]);
 
   const handleCurrentTodoOnclick = todo => {
     setCurrentIdx(prev => todo._id);
@@ -92,7 +93,7 @@ const SideNav = props => {
 
   const handleDelete = () => {
     deleteTodo(id);
-    setDialogOpen(false);
+    setConfirmDialogOpen(false);
     const todoId = todos && todos.findIndex(todo => todo._id === id);
     // navigate to after delete
     if (todoId === todos.length - 1 && todos.length !== 1) {
@@ -151,16 +152,6 @@ const SideNav = props => {
                 <div className="display-5 text-center">
                   <strong>You do not have a todo yet</strong>
                 </div>
-                <div className="text-right">
-                  <Button
-                    color="info"
-                    size="xs"
-                    className=" mt-3"
-                    onClick={() => setViewTodoForm(prev => !prev)}
-                  >
-                    Create todo
-                  </Button>
-                </div>
               </div>
             ) : (
               <DropdownItemContainer>
@@ -171,22 +162,22 @@ const SideNav = props => {
                       text={todo.title}
                       current={id === todo._id ? true : false}
                       onClick={() => handleCurrentTodoOnclick(todo)}
-                      onClickDelete={() => setDialogOpen(prev => !prev)}
+                      onClickDelete={() => setConfirmDialogOpen(prev => !prev)}
                     />
                   );
                 })}
-                <div className="text-right">
-                  <Button
-                    color="info"
-                    size="xs"
-                    className=" my-3 mr-2"
-                    onClick={() => setViewTodoForm(prev => !prev)}
-                  >
-                    Create new todo
-                  </Button>
-                </div>
               </DropdownItemContainer>
             )}
+            <div className="text-right">
+              <Button
+                color="info"
+                size="xs"
+                className=" my-3 mr-2"
+                onClick={() => setViewTodoForm(prev => !prev)}
+              >
+                Create new todo
+              </Button>
+            </div>
           </div>
         </Collapse>
         <SideNavList
@@ -235,9 +226,9 @@ const SideNav = props => {
       />
       <ConfirmDialog
         loading={isDeletingTodo}
-        showDialog={dialogOpen}
-        onHide={() => setDialogOpen(false)}
-        handleClose={() => setDialogOpen(prev => !prev)}
+        showDialog={dconfirmDialogOpen}
+        onHide={() => setConfirmDialogOpen(false)}
+        handleClose={() => setConfirmDialogOpen(prev => !prev)}
         handleConfirm={handleDelete}
         nightMode={nightMode}
       />
