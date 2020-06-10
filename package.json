@@ -7,13 +7,13 @@
     "start": "node server.js",
     "client-install": "npm install --prefix client",
     "server": "nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "client": "npm start --prefix client",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "A.Adegoke",
   "license": "ISC",
   "dependencies": {
-    "async": "^3.2.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -23,12 +23,10 @@
     "nodemailer": "^6.4.8",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "redux-logger": "^3.0.6",
     "validator": "^13.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "concurrently": "^4.1.1"
   }
 }

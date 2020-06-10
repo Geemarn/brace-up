@@ -60,10 +60,14 @@ const UpdatePasswordForm = props => {
     <Form onSubmit={e => handleSubmit(e)}>
       <Container>
         <Row className="justify-content-center mt-5 pt-5">
-          {fetchResetError && (
-            <Alert className="bg-danger h5 text-white">{fetchResetError}</Alert>
-          )}
           <Col md="6" xs="12" lg="6">
+            <div className="text-center">
+              {fetchResetError && (
+                <Alert className="bg-danger h6 text-white">
+                  {fetchResetError}
+                </Alert>
+              )}
+            </div>
             <CardGroup>
               <Card className="p-5">
                 <h2>Reset Password</h2>
@@ -78,7 +82,7 @@ const UpdatePasswordForm = props => {
                     type="password"
                     disabled={isUpdatingPassword}
                     component={InputField}
-                    placeholder="Choose a password"
+                    placeholder="Choose a new password"
                   />
                 </InputGroup>
                 <InputGroup className="mb-4">

@@ -25,7 +25,7 @@ const Layout = () => {
               />
             );
           })}
-          <Route path={"*"} exact={true} name={"Page404"} component={Page404} />
+          <Route component={Page404} />
         </Switch>
       </Suspense>
     </div>

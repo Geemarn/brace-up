@@ -74,7 +74,7 @@ const apiRequest = ({ dispatch }) => next => action => {
         const err = e && e.data && e.data.message;
         console.log("ERR:::::: ", e);
         const showErrorMessage = message => {
-          if (!noErrorToast && message) {
+          if (!noErrorToast && method.toLowerCase() !== "get" && message) {
             toast.error(message);
           }
         };
