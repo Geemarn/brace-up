@@ -23,6 +23,7 @@
     "nodemailer": "^6.4.8",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "redux-logger": "^3.0.6",
     "validator": "^13.0.0"
   },
   "devDependencies": {
