@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import classNames from 'classnames';
-import { FormFeedback, Input } from 'reactstrap';
+import React, { Fragment } from "react";
+import classNames from "classnames";
+import { FormFeedback, Input } from "reactstrap";
 
 export default ({
   className,
@@ -21,9 +21,9 @@ export default ({
         {...rest}
         disabled={disabled}
         className={classNames(className, {
-          'is-invalid': touched && error,
+          "is-invalid": touched && error
         })}
-        style={{ minHeight: 100, resize: 'none' }}
+        style={{ minHeight: 100, resize: "none" }}
         type="textarea"
       />
       {touched && error && (

@@ -24,4 +24,3 @@ export const navigateTo = path => ({
   type: UI_NAVIGATE,
   payload: path
 });
-
