@@ -46,7 +46,8 @@ const Main = props => {
     isFetchingTodo,
     createTodo,
     isCreatingTodo,
-    match: { params }
+    match: { params },
+    match
   } = props;
   const [date, setDate] = useState({});
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -115,7 +116,7 @@ const Main = props => {
             <h4 className="pt-3 mb-0 text font-weight-bold">
               {callGreeting()},{" "}
               <span className="h3 text-info font-weight-bolder">
-                {capitalizeFirstLetter(user && user.username)}
+                {capitalizeFirstLetter(user?.username)}
               </span>
             </h4>
             <h6 className="text">{Moment(date).format("LLL")}</h6>

@@ -22,7 +22,6 @@ const todoSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-
   tasks: [
     {
       user: {

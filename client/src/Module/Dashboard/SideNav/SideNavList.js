@@ -14,6 +14,7 @@ const SideNavList = ({
   return (
     <StyledSideNavList
       borderBottom={borderBottom}
+      z
       openToggle={openToggle}
       onClick={onClickStatus}
     >

@@ -44,7 +44,7 @@ const SideNav = props => {
   const [isOpen, setIsOpen] = useState(false);
   const [viewTodoForm, setViewTodoForm] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(
-    localStorage.getItem(`todoCurrentList/${user.id}`)
+    localStorage.getItem(`todoCurrentList/${user?.id}`)
   );
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dconfirmDialogOpen, setConfirmDialogOpen] = useState(false);
